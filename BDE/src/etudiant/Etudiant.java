@@ -76,6 +76,10 @@ public class Etudiant {
         this.origine = NewOrigine;
     }
 
+    public int compareTo(Etudiant autre) {
+        return this.nom.compareTo(autre.nom);
+    }
+
 
 
 }
