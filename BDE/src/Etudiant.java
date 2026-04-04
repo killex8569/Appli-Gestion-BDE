@@ -1,0 +1,76 @@
+import java.util.ArrayList;
+
+public class Etudiant {
+    private String nom;
+    private String prenom;
+    private int age;
+    private Origine origine;
+    private static int compteur;
+    private int ID;
+    private static ArrayList<Etudiant> listeEtudiant = new ArrayList<>();
+
+
+    public Etudiant(){
+        this.ID = ++compteur;
+    }
+
+    public Etudiant(String nom, String prenom){
+        this();
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public Etudiant(String nom, String prenom, int age, Origine origine){
+        this(nom, prenom);
+        this.age = age;
+        this.origine = origine;
+    }
+    public static void addEtudiantToList(Etudiant etudiant){
+        listeEtudiant.add(etudiant);
+    }
+
+    // Getter
+    public String getNom(){
+        return this.nom;
+    }
+
+    public String getPrenom(){
+        return this.prenom;
+    }
+
+    public int getAge(){
+        return this.age;
+    }
+
+    public int getID(){
+        return this.ID;
+    }
+
+    public Origine getOrigine(){
+        return this.origine;
+    }
+    public static ArrayList<Etudiant> getListeEtudiant(){
+        return listeEtudiant;
+    }
+
+    // Setter
+
+    public void setNom(String Newnom){
+            this.nom = Newnom;
+    }
+
+    public void setPrenom(String Newprenom){
+        this.prenom = Newprenom;
+    }
+
+    public void setAge(int Newage){
+        this.age = Newage;
+    }
+
+    public void setOrigine(Origine NewOrigine){
+        this.origine = NewOrigine;
+    }
+
+
+
+}
