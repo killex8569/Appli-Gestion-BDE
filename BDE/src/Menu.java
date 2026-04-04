@@ -1,6 +1,8 @@
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
+import etudiant.Etudiant;
+
 public class Menu {
     public Menu(){}
 
@@ -21,10 +23,7 @@ public class Menu {
 
             choix = sc.nextInt();
 
-            if (choix == 0){
-                System.out.println("Au revoir !");
-                break;
-            }else if (choix == 1){
+            if (choix == 1){
                 String nom;
                 String prenom;
                 Scanner ScNom = new Scanner(System.in);
@@ -43,6 +42,7 @@ public class Menu {
                 }
             }
         }
+        System.out.println("Aurevoir mon chef!");
         sc.close();
     }
 

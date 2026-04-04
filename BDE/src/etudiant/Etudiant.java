@@ -1,4 +1,9 @@
+package etudiant;
+
 import java.util.ArrayList;
+import model.Origine;
+
+
 
 public class Etudiant {
     private String nom;
