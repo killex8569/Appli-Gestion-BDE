@@ -21,6 +21,8 @@ public class Menu {
             System.out.println(" 3. Voir le solde du compte du BDE");
             System.out.println(" 4. Modifier le compte d'un user");
             System.out.println(" 5. Voir le solde d'un user");
+            System.out.println(" 6. Ajouter un solde à un compte");
+            System.out.println(" 7. Ajouter une dépense au solde d'un compte");
 
             System.out.println("Veuillez choisir votre nombre : ");
 
@@ -62,6 +64,12 @@ public class Menu {
                 Scanner scId = new Scanner(System.in);
                 searchId = scId.nextInt();
                 getSoldeUser(searchId);
+            }else if (choix == 6){
+                double newSolde;
+                Scanner nbSolde = new Scanner(System.in);
+                newSolde = nbSolde.nextDouble();
+
+
             }
         }
         System.out.println("Aurevoir mon chef!");

@@ -14,6 +14,7 @@ public class Etudiant {
     private int ID;
     private static ArrayList<Etudiant> listeEtudiant = new ArrayList<>();
     private Banque compte;
+    private boolean isBde;
 
 
     public Etudiant(){
