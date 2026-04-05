@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 // import des ressourecs java
+import bancaire.Banque;
 import etudiant.Etudiant;
 
 public class Menu {
@@ -18,7 +19,8 @@ public class Menu {
             System.out.println(" 1. Ajouter un élève");
             System.out.println(" 2. Triage (Menu)");
             System.out.println(" 3. Voir le solde du compte du BDE");
-            System.out.println(" 4. ");
+            System.out.println(" 4. Modifier le compte d'un user");
+            System.out.println(" 5. Voir le solde d'un user");
 
             System.out.println("Veuillez choisir votre nombre : ");
 
@@ -41,10 +43,51 @@ public class Menu {
                 this.MenuTriage();
             }else if (choix == 3){
                 System.out.println("test");
+            }else if (choix == 4){
+                int searchId;
+                double newsolde;
+                System.out.println(" Veuillez renseignez l'ID de la banque : ");
+                Scanner scId = new Scanner(System.in);
+                searchId = scId.nextInt();
+
+                System.out.println("Veuillez renseignez le montant à déposer : ");
+                Scanner scSolde = new Scanner(System.in);
+                newsolde = scSolde.nextDouble();
+
+                ModifCompteUtilisateur(searchId, newsolde);
+            }else if (choix == 5){
+
+                int searchId;
+                System.out.println("Veuillez renseignez l'ID du compte");
+                Scanner scId = new Scanner(System.in);
+                searchId = scId.nextInt();
+                getSoldeUser(searchId);
             }
         }
         System.out.println("Aurevoir mon chef!");
         sc.close();
+    }
+
+    public void ModifCompteUtilisateur(int ID, double newSolde){
+        ArrayList<Etudiant> listeEtudiant = Etudiant.getListeEtudiant();
+
+        for (Etudiant e : listeEtudiant){
+            int recherche = e.getID();
+            if (recherche == ID){
+                e.getCompte().setSolde(newSolde);
+            }
+        }
+    }
+
+    public void getSoldeUser(int ID){
+        ArrayList<Etudiant> listeEtudiant = Etudiant.getListeEtudiant();
+
+        for (Etudiant e : listeEtudiant){
+            int recherche = e.getID();
+            if (recherche == ID){
+                System.out.println("Solde sur le compte de : " + e.getNom() + " Solde : " + e.getCompte().getSolde());
+            }
+        }
     }
 
 
@@ -75,10 +118,20 @@ public class Menu {
         }else if (choix == 2){
             triParNom();
         }else if (choix == 3){
-
+            ArrayList<Etudiant> liste = Etudiant.getListeEtudiant();
+            for (int i = 0; i < liste.size() - 1; i++){
+                for (int j = 0; j < liste.size() - 1 - i; j++){
+                    if (liste.get(j).getID() > liste.get(j + 1).getID()){
+                        Etudiant temp = liste.get(j);
+                        liste.set(j, liste.get(j + 1));
+                        liste.set(j + 1, temp);
+                    }
+                }
+            }
+            for (Etudiant e2 : liste){
+                System.out.println("ID : " + e2.getID() + " Nom : " + e2.getNom() + " Prenom : " + e2.getPrenom() + "\n");
+            }
         }
-
-
         }
 
     }

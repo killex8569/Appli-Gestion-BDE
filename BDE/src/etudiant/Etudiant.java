@@ -1,9 +1,9 @@
 package etudiant;
 
 import java.util.ArrayList;
+
+import bancaire.Banque;
 import model.Origine;
-
-
 
 public class Etudiant {
     private String nom;
@@ -13,10 +13,13 @@ public class Etudiant {
     private static int compteur;
     private int ID;
     private static ArrayList<Etudiant> listeEtudiant = new ArrayList<>();
+    private Banque compte;
 
 
     public Etudiant(){
+
         this.ID = ++compteur;
+        this.compte = new Banque();
     }
 
     public Etudiant(String nom, String prenom){
@@ -58,7 +61,12 @@ public class Etudiant {
         return listeEtudiant;
     }
 
+    public Banque getCompte(){
+        return this.compte;
+    }
+
     // Setter
+
 
     public void setNom(String Newnom){
             this.nom = Newnom;
@@ -79,7 +87,5 @@ public class Etudiant {
     public int compareTo(Etudiant autre) {
         return this.nom.compareTo(autre.nom);
     }
-
-
 
 }
