@@ -10,11 +10,11 @@ public class Menu {
     MenuTriage menuTri = new MenuTriage();
     public Menu(){}
 
-    public void MainMenu(){
+    public void MainMenu() {
         Scanner sc = new Scanner(System.in);
         int choix = -1;
 
-        while (choix != 0){
+        while (choix != 0) {
             System.out.println("Bienvenue sur l'interface ");
             System.out.println(" 0. Quitter");
             System.out.println(" 1. Ajouter un élève");
@@ -24,57 +24,68 @@ public class Menu {
             System.out.println(" 5. Voir le solde d'un user");
             System.out.println(" 6. Ajouter un solde à un compte");
             System.out.println(" 7. Ajouter une dépense au solde d'un compte");
-
             System.out.println("Veuillez choisir votre nombre : ");
 
-            choix = sc.nextInt();
+            try {
+                choix = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Veuillez entrer un nombre valide.");
+                continue;
+            }
 
-            if (choix == 1){
-                String nom;
-                String prenom;
-                Scanner ScNom = new Scanner(System.in);
-                Scanner ScPrenom = new Scanner(System.in);
-                System.out.println("Veuillez renseignez son nom : ");
-                nom = ScNom.nextLine();
+            if (choix == 1) {
+                System.out.println("Veuillez renseigner son nom : ");
+                String nom = sc.nextLine();
 
-                System.out.println("Veuillez renseignez son prénom : ");;
-                prenom = ScPrenom.nextLine();
+                System.out.println("Veuillez renseigner son prénom : ");
+                String prenom = sc.nextLine();
 
                 Etudiant etudiant = new Etudiant(nom, prenom);
                 Etudiant.addEtudiantToList(etudiant);
-            }else if (choix == 2){
+
+            } else if (choix == 2) {
                 menuTri.MenuDeTriage();
-            }else if (choix == 3){
+
+            } else if (choix == 3) {
                 System.out.println("test");
-            }else if (choix == 4){
-                int searchId;
-                double newsolde;
-                System.out.println(" Veuillez renseignez l'ID de la banque : ");
-                Scanner scId = new Scanner(System.in);
-                searchId = scId.nextInt();
 
-                System.out.println("Veuillez renseignez le montant à déposer : ");
-                Scanner scSolde = new Scanner(System.in);
-                newsolde = scSolde.nextDouble();
 
-                ModifCompteUtilisateur(searchId, newsolde);
-            }else if (choix == 5){
+            } else if (choix == 4) {
+                System.out.println("Veuillez renseigner l'ID de la banque : ");
+                try {
+                    int searchId = Integer.parseInt(sc.nextLine());
+                    System.out.println("Veuillez renseigner le montant à déposer : ");
+                    double newSolde = Double.parseDouble(sc.nextLine());
+                    ModifCompteUtilisateur(searchId, newSolde);
+                } catch (NumberFormatException e) {
+                    System.out.println("Valeur invalide, retour au menu.");
+                }
 
-                int searchId;
-                System.out.println("Veuillez renseignez l'ID du compte");
-                Scanner scId = new Scanner(System.in);
-                searchId = scId.nextInt();
-                getSoldeUser(searchId);
-            }else if (choix == 6){
-                double newSolde;
-                Scanner nbSolde = new Scanner(System.in);
-                newSolde = nbSolde.nextDouble();
+            } else if (choix == 5) {
+                System.out.println("Veuillez renseigner l'ID du compte : ");
+                try {
+                    int searchId = Integer.parseInt(sc.nextLine());
+                    getSoldeUser(searchId);
+                } catch (NumberFormatException e) {
+                    System.out.println("ID invalide, retour au menu.");
+                }
+
+            } else if (choix == 6) {
+                System.out.println("Veuillez renseigner le solde à ajouter : ");
+                try {
+                    double newSolde = Double.parseDouble(sc.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Montant invalide, retour au menu.");
+                }
+
+            } else if (choix != 7) {
+
             }
         }
+
         System.out.println("Aurevoir mon chef!");
         sc.close();
     }
-
     public void ModifCompteUtilisateur(int ID, double newSolde){
         ArrayList<Etudiant> listeEtudiant = Etudiant.getListeEtudiant();
 
@@ -96,9 +107,6 @@ public class Menu {
             }
         }
     }
-
-
-
 
     public void createStudent(String nom, String prenom){
         Etudiant etudiant = new Etudiant(nom, prenom);

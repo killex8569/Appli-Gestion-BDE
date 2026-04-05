@@ -1,3 +1,4 @@
+package association;
 import bancaire.Banque;
 
 public class Association {
