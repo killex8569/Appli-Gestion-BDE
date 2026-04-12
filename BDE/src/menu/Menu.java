@@ -8,6 +8,7 @@ import etudiant.Etudiant;
 
 public class Menu {
     MenuTriage menuTri = new MenuTriage();
+    MenuCompte menuCompte = new MenuCompte();
     public Menu(){}
 
     public void MainMenu() {
@@ -19,7 +20,7 @@ public class Menu {
             System.out.println(" 0. Quitter");
             System.out.println(" 1. Ajouter un élève");
             System.out.println(" 2. Triage (Menu)");
-            System.out.println(" 3. Voir le solde du compte du BDE");
+            System.out.println(" 3. Menu compte");
             System.out.println(" 4. Modifier le compte d'un user");
             System.out.println(" 5. Voir le solde d'un user");
             System.out.println(" 6. Ajouter un solde à un compte");
@@ -47,8 +48,7 @@ public class Menu {
                 menuTri.MenuDeTriage();
 
             } else if (choix == 3) {
-                System.out.println("test");
-
+                menuCompte.MenuDuCompte();
 
             } else if (choix == 4) {
                 System.out.println("Veuillez renseigner l'ID de la banque : ");

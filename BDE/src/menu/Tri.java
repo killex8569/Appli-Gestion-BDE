@@ -24,4 +24,12 @@ public class Tri {
         }
         return liste;
     }
+
+    // Ajouter le tri par ID (croissant et déscroissant)
+
+    // Ajouter le tri par solde (Croissant et décroissant)
+
+    // Ajouter le tri par mail (Alphabétique et inversement de l'ordre alphabétique)
+
+    //
 }
