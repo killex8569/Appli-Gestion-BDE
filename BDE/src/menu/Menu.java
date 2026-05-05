@@ -24,7 +24,7 @@ public class Menu {
             System.out.println(" 4. Modifier le compte d'un user");
             System.out.println(" 5. Voir le solde d'un user");
             System.out.println(" 6. Ajouter un solde à un compte");
-            System.out.println(" 7. Ajouter une dépense au solde d'un compte");
+            System.out.println(" 7. Ajouter une dépense à un compte");
             System.out.println("Veuillez choisir votre nombre : ");
 
             try {
@@ -79,6 +79,21 @@ public class Menu {
                 }
 
             } else if (choix != 7) {
+                System.out.println("Vous allez réaliser une dépense");
+                Banque.listeBanque();
+                try {
+                    double montant = sc.nextDouble();
+                    int numCompte = sc.nextInt();
+                    int numCompteDestinataire = sc.nextInt();
+                    String description = sc.nextLine();
+
+
+
+
+
+                } catch (NumberFormatException e){
+                    System.out.println("Problème lors de la saisie des informations.");
+                }
 
             }
         }

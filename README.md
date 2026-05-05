@@ -34,3 +34,12 @@ Class Cours:
 
 
 Classe Direction:
+
+
+
+## Éléments à ajouter
+
+- Dans un virement, on peut noté une description pour un virement
+- Organiser un évent (invitation des élèves, description, nom, dates, lieux)
+- Shop
+- Historique des achats pour chaque comptes
